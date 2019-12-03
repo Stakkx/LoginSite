@@ -243,8 +243,16 @@ input:focus {
 }
 
 #noacc:hover {
-color: rgb(175, 175, 175);
+    color: rgb(175, 175, 175);
 }
+
+.problem {
+    color: rgb(155, 27, 27);
+    text-shadow: 1px 1px 1px rgba(73, 6, 6, 0.3);
+    text-align: center;
+}
+
+
 /*END LOGIN*/
 
 #lolxd {
