@@ -31,7 +31,7 @@ require('header.php');
 
 
 <script language="JavaScript">
-    setTimeout("window.location='home.php'",1200);
+    setTimeout("window.location='home.php'",1100);
 </script>
 
 </body>
