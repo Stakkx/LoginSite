@@ -74,10 +74,18 @@ CustomValidation.prototype = {
 
 };
 
-var registerButton = document.getElementById("registerButton");
+var registerForm = document.getElementById('registerForm'); //Changer le texte du button si erreur
+var registerButton = document.getElementById('registerButton')
 registerButton.addEventListener("mouseover", function(){
-  console.log("yo");
+  if(registerForm.hasAttribute("onsubmit")){
+      registerButton.innerHTML='Nope, check your inputs';
+  }
 });
+
+registerButton.addEventListener("mouseleave", function(){
+    if(registerButton.innerHTML=='Nope, check your inputs') registerButton.innerHTML='Register me!';
+});
+
 
 var usernameInput = document.getElementById("nameuser");
 
