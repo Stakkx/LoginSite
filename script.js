@@ -16,19 +16,13 @@ function CustomValidation(){
 }
 
 CustomValidation.prototype = {
-  addInvalidity: function(message){
-    this.invalidities.push(message);
-  },
 
-  getInvalidities: function(){
-    return this.invalidities.join('. \n')
-  },
 
-  checkValidity: function(input){
+  //Fonction pour check le username
+  checkUsernameValidity: function(input){
 
     if(input.value.length < 3){ //Si le username fait moins de 3 char
 
-      this.addInvalidity("At least 3 characters long!");
       var element = document.querySelector('li:nth-child(1)');
       var registerForm = document.getElementById('registerForm');
       registerForm.setAttribute("onsubmit", "return false");
@@ -47,14 +41,12 @@ CustomValidation.prototype = {
 
     if (input.value.match(/[^a-zA-Z0-9]/g)) { //Si le username contient des special char
 
-      this.addInvalidity('Only letters and numbers!');
       var element = document.querySelector('li:nth-child(2)');
       var border = document.getElementById("nameuser");
       var registerForm = document.getElementById('registerForm');
       registerForm.setAttribute("onsubmit", "return false");
       element.classList.add('invalid');
       element.classList.remove('valid');
-      border.classList.remove('notValid');
       border.classList.add('notValid');
 
 
@@ -64,13 +56,57 @@ CustomValidation.prototype = {
       var registerForm = document.getElementById('registerForm');
       element.classList.remove('invalid');
       element.classList.add('valid');
-      border.classList.add('notValid');
       border.classList.remove('notValid');
     }
 
-    
+
+  },
+
+  //Fonction pour check le pass
+  checkPasswordValidity: function(input){
+
+    if(input.value.length < 5){ //Si le pass fait moins de 5 char
+
+      var element = document.querySelector('.pass li:nth-child(1)');
+      var registerForm = document.getElementById('registerForm');
+      registerForm.setAttribute("onsubmit", "return false");
+      element.classList.add('invalid');
+      element.classList.remove('valid');
+
+    } else {
+
+      var element = document.querySelector('.pass li:nth-child(1)');
+      var registerForm = document.getElementById('registerForm');
+      registerForm.removeAttribute("onsubmit");
+      element.classList.remove('invalid');
+      element.classList.add('valid');
+
+    }
+
+    if (input.value.match([])) { //Si ya pas de chiffre
+
+      var element = document.querySelector('.pass li:nth-child(2)');
+      var border = document.getElementById("password");
+      var registerForm = document.getElementById('registerForm');
+      registerForm.setAttribute("onsubmit", "return false");
+      element.classList.add('invalid');
+      element.classList.remove('valid');
+      border.classList.add('notValid');
+
+
+    } else {
+      var element = document.querySelector('.pass li:nth-child(2)');
+      var border = document.getElementById("password");
+      var registerForm = document.getElementById('registerForm');
+      element.classList.remove('invalid');
+      element.classList.add('valid');
+      border.classList.remove('notValid');
+    }
+
 
   }
+
+
 
 };
 
@@ -87,10 +123,20 @@ registerButton.addEventListener("mouseleave", function(){
 });
 
 
+//Trigger la fonction verif de l'input username
 var usernameInput = document.getElementById("nameuser");
 
 usernameInput.CustomValidation = new CustomValidation();
 
 usernameInput.addEventListener("keyup", function(){
-  usernameInput.CustomValidation.checkValidity(this);
+  usernameInput.CustomValidation.checkUsernameValidity(this);
+});
+
+//Pour le password
+var passInput = document.getElementById("password");
+
+passInput.CustomValidation = new CustomValidation();
+
+passInput.addEventListener("keyup", function(){
+  passInput.CustomValidation.checkPasswordValidity(this);
 });

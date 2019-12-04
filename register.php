@@ -55,10 +55,10 @@ require_once('resgister.php');
           required="required"
         />
 
-                <ul class="input-requirements">
+                <ul class="input-requirements pass">
                     <li>At least 5 characters long (50 max)</li>
                     <li>Contains at least 1 number</li>
-                    <li>Contains at least 1 lowercase letter</li>
+                    <li>Contains at least 1 letter</li>
                 </ul>
 
         <input
