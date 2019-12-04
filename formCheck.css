@@ -1,0 +1,28 @@
+input:valid {
+    border-color: rgb(0, 139, 42);
+}
+
+input.notValid {
+    border-color: #e74c3c;
+}
+
+input + .input-requirements {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease-out;
+    margin: 0;
+}
+
+input:not([type="submit"]):hover + .input-requirements,
+input:not([type="submit"]):focus + .input-requirements,
+input:not([type="submit"]):active + .input-requirements {
+    max-height: 1000px;
+    transition: max-height 1s ease-in;
+}
+
+.input-requirements .invalid {
+	color: #e74c3c;
+}
+.input-requirements .valid {
+	color: #2ecc71;
+}

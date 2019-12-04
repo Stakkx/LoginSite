@@ -35,7 +35,7 @@ require_once('authenticate.php');
         </button>
       </form>
       <br>
-      <span id="noacc" onclick="document.location.href='register.html'" >No account yet ? Register here.</span> 
+      <span id="noacc" onclick="document.location.href='register.php'" >No account yet ? Register here.</span> 
     </div>
   </body>
 </html>
