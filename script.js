@@ -83,7 +83,7 @@ CustomValidation.prototype = {
 
     }
 
-    if (input.value.match([])) { //Si ya pas de chiffre
+    if (!input.value.match(/[0-9]/g)) { //Si ya pas de chiffre
 
       var element = document.querySelector('.pass li:nth-child(2)');
       var border = document.getElementById("password");
