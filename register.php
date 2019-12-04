@@ -22,11 +22,11 @@ require_once('resgister.php');
     <div class="login">
 
       <h1> Register</h1>
-      <form method="POST" action="resgister.php">
+      <form method="POST" action="resgister.php" id="registerForm">
         <input
           type="text"
           name="username"
-          id="fdp"
+          id="nameuser"
           placeholder="Username"
           minlength="3"
           required="required"
@@ -67,9 +67,11 @@ require_once('resgister.php');
         placeholder="Confirm password"
         required="required"
       />
-        <button type="submit" class="btn btn-primary btn-block btn-large">
-          Register me !
+
+        <button id="registerButton" type="submit" class="btn btn-primary btn-block btn-large">
+            Register me !
         </button>
+
       </form>
       <br>
       <span id="noacc" onclick="document.location.href='index.php'" >I already have an acc lol</span>

@@ -26,26 +26,32 @@ CustomValidation.prototype = {
 
   checkValidity: function(input){
 
-    if(input.value.length < 3){ //Si c'est moins que 3 char
+    if(input.value.length < 3){ //Si le username fait moins de 3 char
 
       this.addInvalidity("At least 3 characters long!");
       var element = document.querySelector('li:nth-child(1)');
+      var registerForm = document.getElementById('registerForm');
+      registerForm.setAttribute("onsubmit", "return false");
       element.classList.add('invalid');
       element.classList.remove('valid');
 
     } else {
 
       var element = document.querySelector('li:nth-child(1)');
+      var registerForm = document.getElementById('registerForm');
+      registerForm.removeAttribute("onsubmit");
       element.classList.remove('invalid');
       element.classList.add('valid');
 
     }
 
-    if (input.value.match(/[^a-zA-Z0-9]/g)) { //Si ya autre chose que des lettres & chiffres
+    if (input.value.match(/[^a-zA-Z0-9]/g)) { //Si le username contient des special char
 
       this.addInvalidity('Only letters and numbers!');
       var element = document.querySelector('li:nth-child(2)');
-      var border = document.getElementById("fdp");
+      var border = document.getElementById("nameuser");
+      var registerForm = document.getElementById('registerForm');
+      registerForm.setAttribute("onsubmit", "return false");
       element.classList.add('invalid');
       element.classList.remove('valid');
       border.classList.remove('notValid');
@@ -54,27 +60,26 @@ CustomValidation.prototype = {
 
     } else {
       var element = document.querySelector('li:nth-child(2)');
-      var border = document.getElementById("fdp");
+      var border = document.getElementById("nameuser");
+      var registerForm = document.getElementById('registerForm');
       element.classList.remove('invalid');
       element.classList.add('valid');
       border.classList.add('notValid');
       border.classList.remove('notValid');
     }
+
+    
 
   }
 
 };
 
+var registerButton = document.getElementById("registerButton");
+registerButton.addEventListener("mouseover", function(){
+  console.log("yo");
+});
 
-
-
-
-
-
-
-
-
-var usernameInput = document.getElementById("fdp");
+var usernameInput = document.getElementById("nameuser");
 
 usernameInput.CustomValidation = new CustomValidation();
 
