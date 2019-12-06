@@ -152,7 +152,7 @@ registerButton.addEventListener("mouseleave", function(){
 });
 
 
-//Trigger la fonction verif de l'input username
+//LISTENER PFONCTION VERIF USERNAME
 var usernameInput = document.getElementById("nameuser");
 
 usernameInput.CustomValidation = new CustomValidation();
@@ -161,7 +161,7 @@ usernameInput.addEventListener("keyup", function(){
   usernameInput.CustomValidation.checkUsernameValidity(this);
 });
 
-//Pour le password
+//LISTENER FONCTION VERIF PASSWORD
 var passInput = document.getElementById("password");
 
 passInput.CustomValidation = new CustomValidation();
