@@ -252,6 +252,12 @@ input:focus {
     text-align: center;
 }
 
+.oksucces {
+  color: rgb(53, 155, 27);
+  text-shadow: 1px 1px 1px rgba(73, 6, 6, 0.3);
+  text-align: center;
+}
+
 
 /*END LOGIN*/
 

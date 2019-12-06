@@ -1,6 +1,6 @@
 <?php
 
-require_once('resgister.php');
+require_once('registerBack.php');
 
 ?>
 
@@ -22,7 +22,9 @@ require_once('resgister.php');
     <div class="login">
 
       <h1> Register</h1>
-      <form method="POST" action="resgister.php" id="registerForm">
+      <p class="problem"> <?php if (isset($pb)) echo $pb; ?> </p>
+      <p class="oksucces"> <?php if (isset($sc)) echo $sc; ?> </p>
+      <form method="POST" action="register.php" id="registerForm">
         <input
           type="text"
           name="username"
@@ -75,10 +77,10 @@ require_once('resgister.php');
 
       </form>
       <br>
-      <span id="noacc" onclick="document.location.href='index.php'" >I already have an acc lol</span>
+      <span id="noacc" onclick="document.location.href='index.php'" >Go to login page</span>
     </div>
 
-    <script src="script.js"></script>
+    <script src="checkRegister.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </body>
 

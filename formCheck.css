@@ -6,6 +6,7 @@ input.notValid {
     border-color: #e74c3c;
 }
 
+
 input + .input-requirements {
     overflow: hidden;
     max-height: 0;
