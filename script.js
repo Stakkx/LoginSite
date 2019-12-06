@@ -18,10 +18,13 @@ function CustomValidation(){
 CustomValidation.prototype = {
 
 
-  //Fonction pour check le username
+  /////////////////////////////////
+  //FONCTION POUR CHECK LE USERNAME
+  /////////////////////////////////
+
   checkUsernameValidity: function(input){
 
-    if(input.value.length < 3){ //Si le username fait moins de 3 char
+    if(input.value.length < 3){ //SI LE USERNAME FAIT MOINS QUE 3 CHARS
 
       var element = document.querySelector('li:nth-child(1)');
       var registerForm = document.getElementById('registerForm');
@@ -39,7 +42,7 @@ CustomValidation.prototype = {
 
     }
 
-    if (input.value.match(/[^a-zA-Z0-9]/g)) { //Si le username contient des special char
+    if (input.value.match(/[^a-zA-Z0-9]/g)) { //SI IL CONTIENT DES SPECIAL CHARS
 
       var element = document.querySelector('li:nth-child(2)');
       var border = document.getElementById("nameuser");
@@ -62,10 +65,15 @@ CustomValidation.prototype = {
 
   },
 
-  //Fonction pour check le pass
+  /////////////////////////////////
+  //FONCTION POUR CHECK LE PASSWORD
+  /////////////////////////////////
+
   checkPasswordValidity: function(input){
 
-    if(input.value.length < 5){ //Si le pass fait moins de 5 char
+
+    //SI LE PASSWORD FAIT MOINS DE 5 CHARS
+    if(input.value.length < 5){ 
 
       var element = document.querySelector('.pass li:nth-child(1)');
       var registerForm = document.getElementById('registerForm');
@@ -83,7 +91,8 @@ CustomValidation.prototype = {
 
     }
 
-    if (!input.value.match(/[0-9]/g)) { //Si ya pas de chiffre
+    //SI IL N'Y A PAS AU MOINS UN CHIFFRE
+    if (!input.value.match(/[0-9]/g)) { 
 
       var element = document.querySelector('.pass li:nth-child(2)');
       var border = document.getElementById("password");
@@ -103,6 +112,26 @@ CustomValidation.prototype = {
       border.classList.remove('notValid');
     }
 
+
+    if (!input.value.match(/[a-zA-Z]/g)) { //Si ya pas de lettre
+
+      var element = document.querySelector('.pass li:nth-child(3)');
+      var border = document.getElementById("password");
+      var registerForm = document.getElementById('registerForm');
+      registerForm.setAttribute("onsubmit", "return false");
+      element.classList.add('invalid');
+      element.classList.remove('valid');
+      border.classList.add('notValid');
+
+
+    } else {
+      var element = document.querySelector('.pass li:nth-child(3)');
+      var border = document.getElementById("password");
+      var registerForm = document.getElementById('registerForm');
+      element.classList.remove('invalid');
+      element.classList.add('valid');
+      border.classList.remove('notValid');
+    }
 
   }
 
