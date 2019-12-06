@@ -61,32 +61,40 @@ function checkPasswordValidity(input) {
   ///IF NO NUMBERS/////////////////////////////////////////
   if (!input.value.match(/[0-9]/g)) {
     var element = document.querySelector(".pass li:nth-child(2)");
-    var border = document.getElementById("password");
     element.classList.add("invalid");
     element.classList.remove("valid");
-    border.classList.add("notValid");
+
   } else {
     var element = document.querySelector(".pass li:nth-child(2)");
-    var border = document.getElementById("password");
     element.classList.remove("invalid");
     element.classList.add("valid");
-    border.classList.remove("notValid");
+
   }
 
-  ///IF NO LETTERS//////////////////////////////////////
-  if (!input.value.match(/[a-zA-Z]/g)) {
+  ///IF NO LETTERS////////////////////////////////////////
+  if (!input.value.match(/[A-z]/g)) {
     var element = document.querySelector(".pass li:nth-child(3)");
-    var border = document.getElementById("password");
     element.classList.add("invalid");
     element.classList.remove("valid");
-    border.classList.add("notValid");
+
   } else {
     var element = document.querySelector(".pass li:nth-child(3)");
-    var border = document.getElementById("password");
+
     element.classList.remove("invalid");
     element.classList.add("valid");
-    border.classList.remove("notValid");
   }
+
+  ///BORDER COLOR CHANGE////////////////////////////////
+ var element = document.querySelectorAll(".pass li");
+ var border = document.getElementById("password");
+ for (var i = 0; i < element.length; i++) {
+    if(element[i].classList.contains("invalid")){
+        border.classList.add("notValid");
+        } else if (element[0].classList.contains("valid") && element[1].classList.contains("valid") && element[2].classList.contains("valid")){
+            border.classList.remove("notValid");
+            border.classList.add("valid");
+        }
+    } 
 }
 
 //////////////////////////////////
