@@ -22,16 +22,12 @@ function checkUsernameValidity(input){
     if(input.value.length < 3){ 
   
         var element = document.querySelector('li:nth-child(1)');
-        var registerForm = document.getElementById('registerForm');
-        registerForm.setAttribute("onsubmit", "return false");
         element.classList.add('invalid');
         element.classList.remove('valid');
   
     } else {
   
         var element = document.querySelector('li:nth-child(1)');
-        var registerForm = document.getElementById('registerForm');
-        registerForm.removeAttribute("onsubmit");
         element.classList.remove('invalid');
         element.classList.add('valid');
   
@@ -42,8 +38,6 @@ function checkUsernameValidity(input){
   
         var element = document.querySelector('li:nth-child(2)');
         var border = document.getElementById("nameuser");
-        var registerForm = document.getElementById('registerForm');
-        registerForm.setAttribute("onsubmit", "return false");
         element.classList.add('invalid');
         element.classList.remove('valid');
         border.classList.add('notValid');
@@ -52,7 +46,6 @@ function checkUsernameValidity(input){
     } else {
         var element = document.querySelector('li:nth-child(2)');
         var border = document.getElementById("nameuser");
-        var registerForm = document.getElementById('registerForm');
         element.classList.remove('invalid');
         element.classList.add('valid');
         border.classList.remove('notValid');
@@ -71,16 +64,12 @@ function checkPasswordValidity(input){
     if(input.value.length < 5){ 
   
         var element = document.querySelector('.pass li:nth-child(1)');
-        var registerForm = document.getElementById('registerForm');
-        registerForm.setAttribute("onsubmit", "return false");
         element.classList.add('invalid');
         element.classList.remove('valid');
   
       } else {
   
         var element = document.querySelector('.pass li:nth-child(1)');
-        var registerForm = document.getElementById('registerForm');
-        registerForm.removeAttribute("onsubmit");
         element.classList.remove('invalid');
         element.classList.add('valid');
   
@@ -91,8 +80,6 @@ function checkPasswordValidity(input){
   
         var element = document.querySelector('.pass li:nth-child(2)');
         var border = document.getElementById("password");
-        var registerForm = document.getElementById('registerForm');
-        registerForm.setAttribute("onsubmit", "return false");
         element.classList.add('invalid');
         element.classList.remove('valid');
         border.classList.add('notValid');
@@ -100,11 +87,9 @@ function checkPasswordValidity(input){
       } else {
         var element = document.querySelector('.pass li:nth-child(2)');
         var border = document.getElementById("password");
-        var registerForm = document.getElementById('registerForm');
         element.classList.remove('invalid');
         element.classList.add('valid');
         border.classList.remove('notValid');
-        registerForm.removeAttribute("onsubmit")
       }
   
         ///IF NO LETTERS//////////////////////////////////////
@@ -112,8 +97,6 @@ function checkPasswordValidity(input){
   
         var element = document.querySelector('.pass li:nth-child(3)');
         var border = document.getElementById("password");
-        var registerForm = document.getElementById('registerForm');
-        registerForm.setAttribute("onsubmit", "return false");
         element.classList.add('invalid');
         element.classList.remove('valid');
         border.classList.add('notValid');
@@ -122,11 +105,9 @@ function checkPasswordValidity(input){
       } else {
         var element = document.querySelector('.pass li:nth-child(3)');
         var border = document.getElementById("password");
-        var registerForm = document.getElementById('registerForm');
         element.classList.remove('invalid');
         element.classList.add('valid');
         border.classList.remove('notValid');
-        registerForm.removeAttribute("onsubmit")
       }
   
     }
@@ -139,18 +120,21 @@ function checkPasswordValidity(input){
 
 
 var registerButton = document.getElementById('registerButton');
+var registerForm = document.getElementById('registerForm');
 
 registerButton.addEventListener("mouseover", function(){
     var invalidForm = document.querySelectorAll("li");
     for(var i=0; i < invalidForm.length; i++){
         if(invalidForm[i].classList.contains("invalid")){
             registerButton.innerHTML="Nope, check your inputs";
+            registerForm.setAttribute("onsubmit", "return false");
         }
     }
  });
 
 registerButton.addEventListener("mouseleave", function(){
     if(registerButton.innerHTML=='Nope, check your inputs') registerButton.innerHTML='Register me!';
+    registerForm.removeAttribute("onsubmit");
 });
   
   /////////////////////////////////////
