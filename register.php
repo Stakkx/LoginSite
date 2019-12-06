@@ -64,6 +64,7 @@ require_once('resgister.php');
         <input
         type="password"
         name="confirmPassword"
+        id="confirmPassword"
         placeholder="Confirm password"
         required="required"
       />
