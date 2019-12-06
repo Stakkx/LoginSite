@@ -77,8 +77,7 @@ require_once('resgister.php');
       <span id="noacc" onclick="document.location.href='index.php'" >I already have an acc lol</span>
     </div>
 
-    <!-- <script src="script.js"></script> -->
-    <script src="scriptTest.js"></script>
+    <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </body>
 
